@@ -1,21 +1,17 @@
 import s from "./GameBoard.module.css"
-import {makeMove} from "../../redux/gameReducer"
 import { useSelector, useDispatch } from "react-redux"
 import Square from "../Square/Square"
 const GameBoard = () => {
-    const dispatch = useDispatch()
     const gameState = useSelector((state)=>state.games)
+    // console.log(gameState.board.length)
     // const arr = [
-    //     [1, 2, 3],
+    //     [1, 1, 1],
     //     [4, 5, 6],
     //     [7, 8, 9]
     // ]
     
     // for(let i = 0; i < arr.length; i++){
-    //     console.log(+arr[i].join(""))
-    //         console.log(arr[i][0])
-    //         console.log(arr[i][1])
-    //         console.log(arr[i][2])
+    //     console.log(arr[i].every((el)=>el === 1))
     
         
             
@@ -35,7 +31,7 @@ const GameBoard = () => {
         const squaresArr = [];
         for (let i = 0; i < gameState.board.length; i++) {
             for (let k = 0; k < gameState.board[i].length; k++) {
-            squaresArr.push(<Square num={+gameState.board[i][k]} />);
+            squaresArr.push(<Square gameState={gameState} el={gameState.board[i][k]}/>);
             }
         }
         return squaresArr;
