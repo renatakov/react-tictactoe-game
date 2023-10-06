@@ -5,7 +5,25 @@ import Square from "../Square/Square"
 const GameBoard = () => {
     const dispatch = useDispatch()
     const gameState = useSelector((state)=>state.games)
-
+    // const arr = [
+    //     [1, 2, 3],
+    //     [4, 5, 6],
+    //     [7, 8, 9]
+    // ]
+    
+    // for(let i = 0; i < arr.length; i++){
+    //     console.log(+arr[i].join(""))
+    //         console.log(arr[i][0])
+    //         console.log(arr[i][1])
+    //         console.log(arr[i][2])
+    
+        
+            
+    //     }
+    //     for(let k = 0; k <= 2; k++){
+    //         console.log(arr[k][k]) //1, 5, 9
+    //         console.log(arr[k][2-k]) //3, 5, 7
+    //     }
     // const addSymbol = (item, position) =>{
     //     dispatch(makeMove(position))
     //     console.log(gameState)
