@@ -19,6 +19,8 @@ export const makeMove = createAction("makeMove", (x, y)=>{
   }
 });
 
+export const restart = createAction("restart")
+
 export const gameReducer = createReducer(initialState, (builder) => {
   builder.addCase(makeMove, (state, action) => {
     if(state.board[action.payload.x][action.payload.y] === "-"){
@@ -46,5 +48,14 @@ export const gameReducer = createReducer(initialState, (builder) => {
     if(checkWinner(state.board, state.tooglePlayer)){
       state.status = `Player ${state.tooglePlayer} won`
     }
+      })
+      builder.addCase(restart, (state)=>{
+        if(state.status ===  `Player ${state.tooglePlayer} won`){
+          state.board = [
+            ["-", "-", "-"],
+            ["-", "-", "-"],
+            ["-", "-", "-"]
+          ]
+        }
       })
   });

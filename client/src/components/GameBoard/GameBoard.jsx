@@ -1,9 +1,13 @@
 import s from "./GameBoard.module.css"
 import { useSelector} from "react-redux"
+import { useDispatch } from "react-redux"
 import { useRef, useState } from "react"
 import Square from "../Square/Square"
+import { restart } from "../../redux/gameReducer"
 const GameBoard = () => {
     const [showText, setShowText] = useState(true)
+    const dispatch = useDispatch()
+    
     const gameState = useSelector((state)=>state.games)
     const btnRef = useRef(null)
     let SquareCollection = () => {
@@ -18,7 +22,9 @@ const GameBoard = () => {
     const restartBtn = () => {
         if (gameState.status === `Player ${gameState.tooglePlayer} won`) {
             setShowText(false);
+            dispatch(restart())
         }
+        window.location.reload()
     }
     return (
         <>
